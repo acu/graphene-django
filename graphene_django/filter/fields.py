@@ -8,14 +8,14 @@ from .utils import get_filtering_args_from_filterset, get_filterset_class
 
 class DjangoFilterConnectionField(DjangoConnectionField):
     def __init__(
-        self,
-        type,
-        fields=None,
-        order_by=None,
-        extra_filter_meta=None,
-        filterset_class=None,
-        *args,
-        **kwargs
+            self,
+            type,
+            fields=None,
+            order_by=None,
+            extra_filter_meta=None,
+            filterset_class=None,
+            *args,
+            **kwargs
     ):
         self._fields = fields
         self._provided_filterset_class = filterset_class
@@ -60,10 +60,10 @@ class DjangoFilterConnectionField(DjangoConnectionField):
         # See related PR: https://github.com/graphql-python/graphene-django/pull/126
 
         assert not (
-            default_queryset.query.low_mark and queryset.query.low_mark
+                default_queryset.query.low_mark and queryset.query.low_mark
         ), "Received two sliced querysets (low mark) in the connection, please slice only in one."
         assert not (
-            default_queryset.query.high_mark and queryset.query.high_mark
+                default_queryset.query.high_mark and queryset.query.high_mark
         ), "Received two sliced querysets (high mark) in the connection, please slice only in one."
         low = default_queryset.query.low_mark or queryset.query.low_mark
         high = default_queryset.query.high_mark or queryset.query.high_mark
@@ -112,7 +112,7 @@ class DjangoFilterConnectionField(DjangoConnectionField):
         return partial(
             self.connection_resolver,
             parent_resolver,
-            self.type,
+            self.connection_type,
             self.node_type,
             self.get_manager(),
             self.max_limit,

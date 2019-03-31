@@ -217,8 +217,8 @@ def test_should_manytomany_convert_connectionorlist_list():
     assert isinstance(graphene_field, graphene.Dynamic)
     dynamic_field = graphene_field.get_type()
     assert isinstance(dynamic_field, graphene.Field)
-    assert isinstance(dynamic_field.type, graphene.List)
-    assert dynamic_field.type.of_type == A
+    assert isinstance(dynamic_field.type.of_type, graphene.List)
+    assert dynamic_field.type.of_type.of_type == A
 
 
 def test_should_manytomany_convert_connectionorlist_connection():
@@ -233,7 +233,7 @@ def test_should_manytomany_convert_connectionorlist_connection():
     assert isinstance(graphene_field, graphene.Dynamic)
     dynamic_field = graphene_field.get_type()
     assert isinstance(dynamic_field, ConnectionField)
-    assert dynamic_field.type == A._meta.connection
+    assert dynamic_field.type.of_type == A._meta.connection
 
 
 def test_should_manytoone_convert_connectionorlist():
@@ -246,8 +246,8 @@ def test_should_manytoone_convert_connectionorlist():
     assert isinstance(graphene_field, graphene.Dynamic)
     dynamic_field = graphene_field.get_type()
     assert isinstance(dynamic_field, graphene.Field)
-    assert isinstance(dynamic_field.type, graphene.List)
-    assert dynamic_field.type.of_type == A
+    assert isinstance(dynamic_field.type.of_type, graphene.List)
+    assert dynamic_field.type.of_type.of_type == A
 
 
 def test_should_onetoone_reverse_convert_model():

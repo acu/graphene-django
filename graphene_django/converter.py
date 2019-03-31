@@ -187,11 +187,11 @@ def convert_field_to_list_or_connection(field, registry=None):
             if _type._meta.filter_fields:
                 from .filter.fields import DjangoFilterConnectionField
 
-                return DjangoFilterConnectionField(_type, description=description)
+                return DjangoFilterConnectionField(_type, description=description, required=True)
 
-            return DjangoConnectionField(_type, description=description)
+            return DjangoConnectionField(_type, description=description, required=True)
 
-        return DjangoListField(_type, description=description)
+        return DjangoListField(_type, description=description, required=True)
 
     return Dynamic(dynamic_type)
 

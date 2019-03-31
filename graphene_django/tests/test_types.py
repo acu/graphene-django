@@ -165,10 +165,10 @@ type Reporter {
   firstName: String!
   lastName: String!
   email: String!
-  pets: [Reporter]
+  pets: [Reporter]!
   aChoice: ReporterAChoice!
   reporterType: ReporterReporterType
-  articles(before: String, after: String, first: Int, last: Int): ArticleConnection
+  articles(before: String, after: String, first: Int, last: Int): ArticleConnection!
 }
 
 enum ReporterAChoice {
